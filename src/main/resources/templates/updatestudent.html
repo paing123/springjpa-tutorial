@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Student Register & List</title>
+  <style type="text/css">
+  	table, th, td {
+	  border: 1px solid black;
+	}
+  </style>
+</head>
+
+<body>	
+	<form id="frmStudent" th:object="${model}" th:action="@{/updatestudent}" method="post">
+		<div align="center">
+			<h2>Student Update</h2>
+			<table style="text-align: center;">
+				<tr>
+					<td>Student Id</td>
+					<td>
+						<input type="text" id="sid" th:field="*{studentId}" style="width: 190px" readonly="readonly">
+					</td>
+				</tr>
+				<tr>
+					<td>Student Name</td>
+					<td>
+						<input type="text" id="sname" th:field="*{studentName}" style="width: 190px">
+						<div th:if="${#fields.hasErrors('studentName')}"  th:errors="*{studentName}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Father Name</td>
+					<td>
+						<input type="text" id="fname" th:field="*{fatherName}" style="width: 190px">
+						<div th:if="${#fields.hasErrors('fatherName')}"  th:errors="*{fatherName}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Mother Name</td>
+					<td>
+						<input type="text" id="mname" th:field="*{motherName}" style="width: 190px">
+						<div th:if="${#fields.hasErrors('motherName')}"  th:errors="*{motherName}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<td>
+						<input type="radio" id="g1" name="option1" value="Male" th:field="*{gender}">
+	                	<label for="option1">Male</label>
+	                	<input type="radio" id="g2" name="option2" value="Female" th:field="*{gender}">
+	                	<label for="option2">Female</label>
+	                	<input type="radio" id="g3" name="option3" value="Other" th:field="*{gender}">
+	                	<label for="option3">Other</label>
+	                	<div th:if="${#fields.hasErrors('gender')}"  th:errors="*{gender}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Date Of Birth</td>
+					<td>
+						<input type="date" id="dob" th:field="*{dob}" style="width: 190px">
+						<div th:if="${#fields.hasErrors('dob')}"  th:errors="*{dob}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>
+						<input type="email" id="email" th:field="*{email}" style="width: 190px">
+						<div th:if="${#fields.hasErrors('email')}"  th:errors="*{email}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>University</td>
+					<td>
+						<input type="text" id="uni" th:field="*{university}" style="width: 190px">
+						<div th:if="${#fields.hasErrors('university')}"  th:errors="*{university}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Level</td>
+					<td>
+	 					<select th:field="*{level}" id="level" style="width: 196px">
+						    <option th:value="B.C.Sc" th:text="B.C.Sc"></option>
+						    <option th:value="B.C.Sc_Hons" th:text="B.C.Sc_Hons"></option>
+						    <option th:value="FinalYear" th:text="Final_Year"></option>
+						</select>
+						<div th:if="${#fields.hasErrors('level')}"  th:errors="*{level}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Major</td>
+					<td>
+						<select th:field="*{major}" id="major" style="width: 196px">
+						    <option th:value="CS" th:text="CS"></option>
+						    <option th:value="CT" th:text="CT"></option>
+						</select>
+						<div th:if="${#fields.hasErrors('major')}"  th:errors="*{major}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Phone Number</td>
+					<td>
+						<input type="text" th:field="*{phone}" id="phone" style="width: 190px">
+						<div th:if="${#fields.hasErrors('phone')}"  th:errors="*{phone}" th:style="${'color:red'}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit">Update</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+
+</body>
+
+</html>
